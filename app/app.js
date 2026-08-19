@@ -674,6 +674,239 @@ if ("serviceWorker" in navigator) {
   );
 
 }
+/* ================= DEMO PAYMENT ================= */
+
+const paymentBox = document.createElement("div");
+
+paymentBox.innerHTML = `
+  <style>
+    #demoPayBtn{
+      position:fixed;
+      right:20px;
+      bottom:90px;
+      z-index:9999;
+      background:#b8ef45;
+      color:#155c3b;
+      border:0;
+      border-radius:50px;
+      padding:14px 20px;
+      font-weight:800;
+      cursor:pointer;
+      box-shadow:0 6px 20px rgba(0,0,0,.18);
+    }
+
+    #paymentModal{
+      display:none;
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,.55);
+      z-index:10000;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
+    }
+
+    .payment-card{
+      background:white;
+      width:min(420px,100%);
+      border-radius:24px;
+      padding:25px;
+      box-shadow:0 20px 50px rgba(0,0,0,.25);
+      font-family:Arial,sans-serif;
+    }
+
+    .payment-card h2{
+      color:#155c3b;
+      margin-top:0;
+    }
+
+    .pay-row{
+      display:flex;
+      justify-content:space-between;
+      padding:12px 0;
+      border-bottom:1px solid #eee;
+    }
+
+    .pay-total{
+      font-size:22px;
+      font-weight:800;
+      color:#155c3b;
+      margin:18px 0;
+    }
+
+    .pay-option{
+      display:block;
+      padding:12px;
+      margin:8px 0;
+      background:#f3f8ee;
+      border-radius:12px;
+    }
+
+    .pay-confirm{
+      width:100%;
+      padding:14px;
+      border:0;
+      border-radius:12px;
+      background:#155c3b;
+      color:white;
+      font-size:16px;
+      font-weight:800;
+      cursor:pointer;
+      margin-top:12px;
+    }
+
+    .pay-close{
+      width:100%;
+      padding:11px;
+      border:1px solid #ddd;
+      border-radius:12px;
+      background:white;
+      margin-top:8px;
+      cursor:pointer;
+    }
+
+    #paymentSuccess{
+      display:none;
+      text-align:center;
+    }
+
+    .success-circle{
+      font-size:55px;
+      margin:10px;
+    }
+  </style>
+
+  <button id="demoPayBtn">💳 Demo Payment</button>
+
+  <div id="paymentModal">
+
+    <div class="payment-card">
+
+      <div id="paymentForm">
+
+        <h2>🧾 Confirm Order</h2>
+
+        <div class="pay-row">
+          <span>Buyer</span>
+          <b>HARVEX Resort Partner</b>
+        </div>
+
+        <div class="pay-row">
+          <span>Produce</span>
+          <b>Tomatoes</b>
+        </div>
+
+        <div class="pay-row">
+          <span>Quantity</span>
+          <b>100 kg</b>
+        </div>
+
+        <div class="pay-row">
+          <span>Price</span>
+          <b>₹30/kg</b>
+        </div>
+
+        <div class="pay-total">
+          Total: ₹3,000
+        </div>
+
+        <h3>Choose Payment Method</h3>
+
+        <label class="pay-option">
+          <input type="radio" name="demoPayment" checked>
+          UPI
+        </label>
+
+        <label class="pay-option">
+          <input type="radio" name="demoPayment">
+          Bank Transfer
+        </label>
+
+        <label class="pay-option">
+          <input type="radio" name="demoPayment">
+          Secure Escrow
+        </label>
+
+        <button class="pay-confirm" id="confirmDemoPayment">
+          💳 Pay ₹3,000
+        </button>
+
+        <button class="pay-close" id="closePayment">
+          Cancel
+        </button>
+
+      </div>
+
+
+      <div id="paymentSuccess">
+
+        <div class="success-circle">✅</div>
+
+        <h2>Payment Successful!</h2>
+
+        <p>
+          Order confirmed successfully.
+        </p>
+
+        <div class="pay-total">
+          ₹3,000
+        </div>
+
+        <p>
+          🌾 Produce: Tomatoes<br>
+          📦 Quantity: 100 kg<br>
+          🏨 Buyer: HARVEX Resort Partner
+        </p>
+
+        <button class="pay-confirm" id="finishPayment">
+          Done
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+`;
+
+
+document.body.appendChild(paymentBox);
+
+
+document.getElementById("demoPayBtn").onclick = function(){
+
+  document.getElementById("paymentModal").style.display = "flex";
+
+};
+
+
+document.getElementById("closePayment").onclick = function(){
+
+  document.getElementById("paymentModal").style.display = "none";
+
+};
+
+
+document.getElementById("confirmDemoPayment").onclick = function(){
+
+  document.getElementById("paymentForm").style.display = "none";
+
+  document.getElementById("paymentSuccess").style.display = "block";
+
+};
+
+
+document.getElementById("finishPayment").onclick = function(){
+
+  document.getElementById("paymentModal").style.display = "none";
+
+  document.getElementById("paymentForm").style.display = "block";
+
+  document.getElementById("paymentSuccess").style.display = "none";
+
+  alert("✅ Sale completed successfully!");
+
+};
 
 
 renderAll();
