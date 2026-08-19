@@ -538,11 +538,21 @@ function connectBuyer(name) {
 
   saveData();
 
-  toast(
-    "🤝 Connection request sent to " + name
-  );
+  toast("🤝 Connection request sent to " + name);
 
-  renderStats();
+  setTimeout(function() {
+
+    document.querySelectorAll(".screen").forEach(function(screen) {
+      screen.classList.remove("active");
+    });
+
+    const paymentScreen = document.getElementById("payment");
+
+    if (paymentScreen) {
+      paymentScreen.classList.add("active");
+    }
+
+  }, 800);
 
 }
 
