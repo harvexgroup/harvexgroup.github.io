@@ -700,8 +700,127 @@
   class="toast"
 ></div>
 
+<!-- PAYMENT / SALE SCREEN -->
 
-<script src="app.js"></script>
+<section id="payment" class="screen">
+
+  <div class="page-head">
+    <div>
+      <div class="eyebrow">HARVEX TRANSACTION</div>
+      <h1>Confirm Sale</h1>
+    </div>
+  </div>
+
+  <div class="form-card" id="saleForm">
+
+    <h2>🧾 Order Summary</h2>
+
+    <div class="order-row">
+      <span>Buyer</span>
+      <b>HARVEX Resort Partner</b>
+    </div>
+
+    <div class="order-row">
+      <span>Produce</span>
+      <b>Tomatoes</b>
+    </div>
+
+    <div class="order-row">
+      <span>Quantity</span>
+      <b>100 kg</b>
+    </div>
+
+    <div class="order-row">
+      <span>Price</span>
+      <b>₹30/kg</b>
+    </div>
+
+    <div class="sale-total">
+      Total: ₹3,000
+    </div>
+
+    <h3>Choose Payment Method</h3>
+
+    <label class="payment-choice">
+      <input type="radio" name="harvexPay" checked>
+      💳 UPI
+    </label>
+
+    <label class="payment-choice">
+      <input type="radio" name="harvexPay">
+      🏦 Bank Transfer
+    </label>
+
+    <label class="payment-choice">
+      <input type="radio" name="harvexPay">
+      🔐 Secure Escrow
+    </label>
+
+    <button
+      id="harvexPayButton"
+      class="primary full"
+      type="button"
+    >
+      💳 Pay ₹3,000
+    </button>
+
+    <p class="demo-payment-note">
+      Demo payment for prototype presentation.
+      No real money is transferred.
+    </p>
+
+  </div>
+
+
+  <div
+    class="form-card"
+    id="saleSuccess"
+    style="display:none;text-align:center;"
+  >
+
+    <div style="font-size:60px;">✅</div>
+
+    <h2>Sale Confirmed!</h2>
+
+    <p>
+      Payment has been successfully recorded
+      in this HARVEX prototype.
+    </p>
+
+    <div class="sale-total">
+      ₹3,000
+    </div>
+
+    <p>
+      🌾 Tomatoes — 100 kg<br>
+      🏨 HARVEX Resort Partner
+    </p>
+
+    <button
+      class="primary full"
+      type="button"
+      onclick="document.querySelector('[data-go=home]').click()"
+    >
+      Back to Home
+    </button>
+
+  </div>
+
+</section>
+
+
+<script>
+
+document.getElementById("harvexPayButton").onclick = function(){
+
+  document.getElementById("saleForm").style.display = "none";
+
+  document.getElementById("saleSuccess").style.display = "block";
+
+};
+
+</script>
+  <script src="app.js"></script>
 
 </body>
 </html>
