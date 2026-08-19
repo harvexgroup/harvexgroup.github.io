@@ -1,0 +1,13 @@
+{
+  "name":"HARVEX HUB",
+  "short_name":"HARVEX",
+  "description":"Agriculture storage, marketplace and buyer connections.",
+  "start_url":"./",
+  "display":"standalone",
+  "background_color":"#F7FAF3",
+  "theme_color":"#155C3B",
+  "orientation":"portrait",
+  "icons":[
+    {"src":"icons/icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}
+  ]
+}
