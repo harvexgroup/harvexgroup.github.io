@@ -1,63 +1,113 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#155C3B">
-  <meta name="description" content="HARVEX HUB — agriculture storage, marketplace and buyer connections.">
-  <link rel="manifest" href="manifest.json">
-  <link rel="icon" href="icons/icon.svg">
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>HARVEX HUB</title>
+
+  <meta name="theme-color" content="#155c3b">
+  <meta name="description" content="HARVEX HUB — Agriculture's Future Marketplace">
+
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
-<div id="toast" class="toast"></div>
-
 <header class="topbar">
+
   <div class="brand">
+
     <div class="brandmark">H</div>
+
     <div>
-      <div class="brandname">HARVEX <span>HUB</span></div>
-      <div class="tagline">Store today. Sell smarter tomorrow.</div>
-    </div>
-  </div>
-  <button id="installBtn" class="install-btn hidden">Install App</button>
-</header>
+      <div class="brandname">
+        HARVEX <span>HUB</span>
+      </div>
 
-<main>
-
-<!-- HOME -->
-<section id="home" class="screen active">
-
-  <div class="hero">
-    <div>
-      <div class="eyebrow">🌾 AGRICULTURE'S FUTURE MARKETPLACE</div>
-
-      <h1>From <span>harvest</span> to the right buyer.</h1>
-
-      <p>
-        Store, grade, list, match and sell — all through one simple HARVEX journey.
-      </p>
-
-      <div class="hero-actions">
-        <button class="primary" data-go="add">List Produce</button>
-        <button class="secondary" data-go="buyers">Find Buyers</button>
+      <div class="tagline">
+        Store today. Sell smarter tomorrow.
       </div>
     </div>
 
+  </div>
+
+  <button id="installBtn" class="install-btn hidden">
+    Install
+  </button>
+
+</header>
+
+
+<main>
+
+
+<!-- ================= HOME ================= -->
+
+<section id="home" class="screen active">
+
+  <div class="hero">
+
+    <div>
+
+      <div class="eyebrow">
+        🌾 AGRICULTURE'S FUTURE MARKETPLACE
+      </div>
+
+      <h1>
+        From <span>harvest</span> to the right buyer.
+      </h1>
+
+      <p>
+        Store, grade, list, match and sell —
+        all through one simple HARVEX journey.
+      </p>
+
+      <div class="hero-actions">
+
+        <button
+          class="primary"
+          data-go="add"
+        >
+          List Produce
+        </button>
+
+        <button
+          class="secondary"
+          data-go="buyers"
+        >
+          Find Buyers
+        </button>
+
+      </div>
+
+    </div>
+
+
     <div class="hero-art">
+
       <div class="sun"></div>
+
       <div class="field f1"></div>
       <div class="field f2"></div>
       <div class="field f3"></div>
-      <div class="farmer-emoji">🧑🏽‍🌾</div>
-      <div class="produce">🥕 🍅 🥬</div>
+
+      <div class="farmer-emoji">
+        🧑‍🌾
+      </div>
+
+      <div class="produce">
+        🥕 🍅 🥬
+      </div>
+
     </div>
+
   </div>
 
+
   <div class="stats">
+
     <div>
       <b id="statListings">0</b>
       <span>My Listings</span>
@@ -72,12 +122,18 @@
       <b id="statMatches">0</b>
       <span>Buyer Matches</span>
     </div>
+
   </div>
 
+
   <div class="section-title">
+
     <h2>How HARVEX works</h2>
+
     <span>5 steps</span>
+
   </div>
+
 
   <div class="steps">
 
@@ -113,245 +169,395 @@
 
   </div>
 
+
   <div class="section-title">
+
     <h2>Today's buyer demand</h2>
-    <span>Local B2B</span>
+
+    <span>B2B</span>
+
   </div>
 
-  <div id="demandPreview" class="demand-grid"></div>
+
+  <div
+    id="demandPreview"
+    class="demand-grid"
+  ></div>
 
 </section>
 
 
-<!-- LISTINGS -->
+
+<!-- ================= ADD PRODUCE ================= -->
+
+<section id="add" class="screen">
+
+  <div class="page-head">
+
+    <div>
+
+      <div class="eyebrow">
+        HARVEX MARKETPLACE
+      </div>
+
+      <h1>List your produce</h1>
+
+    </div>
+
+  </div>
+
+
+  <div class="form-card">
+
+    <form id="produceForm">
+
+      <label>
+        PRODUCE
+
+        <input
+          id="produce"
+          type="text"
+          placeholder="e.g. Tomatoes"
+          required
+        >
+
+      </label>
+
+
+      <div class="two">
+
+        <label>
+          QUANTITY (KG)
+
+          <input
+            id="qty"
+            type="number"
+            min="1"
+            placeholder="100"
+            required
+          >
+
+        </label>
+
+
+        <label>
+          EXPECTED PRICE (₹/KG)
+
+          <input
+            id="price"
+            type="number"
+            min="1"
+            placeholder="30"
+            required
+          >
+
+        </label>
+
+      </div>
+
+
+      <div class="two">
+
+        <label>
+          QUALITY
+
+          <select id="quality">
+
+            <option>Grade A</option>
+            <option>Grade B</option>
+            <option>Grade C</option>
+
+          </select>
+
+        </label>
+
+
+        <label>
+          AVAILABLE FROM
+
+          <input
+            id="date"
+            type="date"
+            required
+          >
+
+        </label>
+
+      </div>
+
+
+      <label>
+
+        STORAGE REQUIREMENT
+
+        <select id="storage">
+
+          <option>Standard Storage</option>
+          <option>Cold Storage</option>
+          <option>Dry Storage</option>
+          <option>Short-Term Storage</option>
+
+        </select>
+
+      </label>
+
+
+      <label>
+
+        NOTES
+
+        <textarea
+          id="notes"
+          rows="4"
+          placeholder="Additional information about your produce..."
+        ></textarea>
+
+      </label>
+
+
+      <button
+        type="submit"
+        class="primary full"
+      >
+        🌾 Publish Produce Listing
+      </button>
+
+    </form>
+
+  </div>
+
+</section>
+
+
+
+<!-- ================= LISTINGS ================= -->
+
 <section id="listings" class="screen">
 
   <div class="page-head">
 
     <div>
-      <div class="eyebrow">MARKETPLACE</div>
-      <h1>My Produce</h1>
+
+      <div class="eyebrow">
+        YOUR MARKETPLACE
+      </div>
+
+      <h1>My Listings</h1>
+
     </div>
 
-    <button class="primary small-btn" data-go="add">+ Add</button>
+    <button
+      class="primary small-btn"
+      data-go="add"
+    >
+      + Add
+    </button>
 
   </div>
+
 
   <div id="listingList"></div>
 
 </section>
 
 
-<!-- ADD PRODUCE -->
-<section id="add" class="screen">
 
-  <div class="page-head">
+<!-- ================= BUYERS ================= -->
 
-    <div>
-      <div class="eyebrow">FARMER TO MARKET</div>
-      <h1>List Produce</h1>
-    </div>
-
-  </div>
-
-  <form id="produceForm" class="form-card">
-
-    <label>
-      Produce
-
-      <select id="produce" required>
-        <option value="">Choose produce</option>
-        <option>Tomatoes</option>
-        <option>Onions</option>
-        <option>Potatoes</option>
-        <option>Leafy Greens</option>
-        <option>Bananas</option>
-        <option>Mangoes</option>
-        <option>Chillies</option>
-        <option>Cashew</option>
-      </select>
-
-    </label>
-
-    <div class="two">
-
-      <label>
-        Quantity (kg)
-        <input id="qty" type="number" min="1" required placeholder="e.g. 250">
-      </label>
-
-      <label>
-        Expected price / kg
-        <input id="price" type="number" min="1" required placeholder="₹">
-      </label>
-
-    </div>
-
-    <div class="two">
-
-      <label>
-        Quality
-
-        <select id="quality">
-          <option>Grade A</option>
-          <option>Grade B</option>
-          <option>Mixed</option>
-        </select>
-
-      </label>
-
-      <label>
-        Storage
-
-        <select id="storage">
-          <option>Need storage</option>
-          <option>Ready to sell</option>
-        </select>
-
-      </label>
-
-    </div>
-
-    <label>
-      Harvest / available date
-      <input id="date" type="date" required>
-    </label>
-
-    <label>
-      Notes
-
-      <textarea
-        id="notes"
-        rows="3"
-        placeholder="Anything the buyer should know..."
-      ></textarea>
-
-    </label>
-
-    <button class="primary full" type="submit">
-      Publish Listing
-    </button>
-
-  </form>
-
-</section>
-
-
-<!-- BUYERS -->
 <section id="buyers" class="screen">
 
   <div class="page-head">
 
     <div>
-      <div class="eyebrow">BUYER NETWORK</div>
-      <h1>Buyer Demand</h1>
+
+      <div class="eyebrow">
+        VERIFIED BUYERS
+      </div>
+
+      <h1>Find Buyers</h1>
+
     </div>
 
   </div>
 
+
   <div class="filter-row">
 
-    <button class="filter active" data-filter="All">
+    <button
+      class="filter active"
+      data-filter="All"
+    >
       All
     </button>
 
-    <button class="filter" data-filter="Resort">
-      Resorts
+    <button
+      class="filter"
+      data-filter="Resort"
+    >
+      🏨 Resorts
     </button>
 
-    <button class="filter" data-filter="Restaurant">
-      Restaurants
+    <button
+      class="filter"
+      data-filter="Restaurant"
+    >
+      🍽️ Restaurants
     </button>
 
-    <button class="filter" data-filter="Retailer">
-      Retailers
+    <button
+      class="filter"
+      data-filter="Retailer"
+    >
+      🛒 Retailers
     </button>
 
   </div>
 
+
   <div id="buyerList"></div>
+
+
+  <div class="info-note">
+
+    <b>💡 HARVEX B2B NETWORK</b>
+
+    <br><br>
+
+    We connect farmers with potential recurring
+    buyers such as resorts, restaurants, retailers
+    and other agricultural businesses.
+
+  </div>
 
 </section>
 
 
-<!-- STORAGE -->
+
+<!-- ================= STORAGE ================= -->
+
 <section id="storage" class="screen">
 
   <div class="page-head">
 
     <div>
-      <div class="eyebrow">HARVEX HUB</div>
-      <h1>Storage</h1>
+
+      <div class="eyebrow">
+        HARVEX HUB
+      </div>
+
+      <h1>Smart Storage</h1>
+
     </div>
 
   </div>
 
+
   <div class="storage-card">
 
-    <div class="storage-visual">📦</div>
+    <div class="storage-visual">
+      📦
+    </div>
 
     <div>
-      <b>HARVEX Hub</b>
+
+      <h2>Store today. Sell smarter.</h2>
 
       <p>
-        Book storage space for your produce.
-        Your stock can be sorted, graded and packed before sale.
+        Request suitable storage while HARVEX
+        works to connect your produce with
+        potential buyers.
       </p>
 
     </div>
 
   </div>
 
-  <form id="storageForm" class="form-card">
 
-    <label>
-      Produce
+  <div class="form-card">
 
-      <select id="sProduce">
-        <option>Tomatoes</option>
-        <option>Onions</option>
-        <option>Potatoes</option>
-        <option>Leafy Greens</option>
-        <option>Mangoes</option>
-      </select>
-
-    </label>
-
-    <div class="two">
+    <form id="storageForm">
 
       <label>
-        Quantity (kg)
-        <input id="sQty" type="number" min="1" required>
+
+        PRODUCE
+
+        <input
+          id="sProduce"
+          type="text"
+          placeholder="e.g. Tomatoes"
+          required
+        >
+
       </label>
 
-      <label>
-        Days
-        <input id="sDays" type="number" min="1" max="30" value="7" required>
-      </label>
 
-    </div>
+      <div class="two">
 
-    <button class="primary full" type="submit">
-      Request Storage
-    </button>
+        <label>
 
-  </form>
+          QUANTITY (KG)
+
+          <input
+            id="sQty"
+            type="number"
+            min="1"
+            placeholder="100"
+            required
+          >
+
+        </label>
+
+
+        <label>
+
+          STORAGE PERIOD (DAYS)
+
+          <input
+            id="sDays"
+            type="number"
+            min="1"
+            placeholder="7"
+            required
+          >
+
+        </label>
+
+      </div>
+
+
+      <button
+        type="submit"
+        class="primary full"
+      >
+        📦 Request HARVEX Hub Storage
+      </button>
+
+    </form>
+
+  </div>
+
 
   <div id="storageHistory"></div>
 
 </section>
 
 
-<!-- PROFILE -->
+
+<!-- ================= PROFILE ================= -->
+
 <section id="profile" class="screen">
 
   <div class="profile-hero">
 
-    <div class="avatar">🌾</div>
+    <div class="avatar">
+      🧑‍🌾
+    </div>
 
     <div>
 
-      <div class="eyebrow">MY PROFILE</div>
+      <div class="eyebrow">
+        HARVEX MEMBER
+      </div>
 
       <h1 id="profileName">
         Farmer Account
@@ -365,70 +571,134 @@
 
   </div>
 
+
   <div class="menu-card">
 
     <button id="editProfile">
-      ✏️ Edit profile
+
+      👤 Edit Profile
+
       <span>›</span>
+
     </button>
+
 
     <button id="languageBtn">
-      🌐 Language support
-      <span>English / Local</span>
+
+      🌐 Local Language Support
+
+      <span>›</span>
+
     </button>
 
-    <button id="clearData">
-      🧹 Reset demo data
+
+    <button data-go="storage">
+
+      📦 My Storage
+
       <span>›</span>
+
+    </button>
+
+
+    <button data-go="listings">
+
+      📋 My Listings
+
+      <span>›</span>
+
+    </button>
+
+
+    <button id="clearData">
+
+      🔄 Reset Demo Data
+
+      <span>›</span>
+
     </button>
 
   </div>
 
+
   <div class="info-note">
 
-    <b>Competition demo</b>
+    <b>HARVEX's approach:</b>
 
-    <br>
+    <br><br>
 
-    This prototype stores demo data on this device.
-    A production version would connect to a secure backend
-    for real farmer, buyer and hub accounts.
+    Trust first. Technology second.
+
+    <br><br>
+
+    Farmers can receive assisted,
+    local-language support so that
+    technology does not become a barrier.
 
   </div>
 
 </section>
 
+
 </main>
 
 
-<!-- BOTTOM NAVIGATION -->
+
+<!-- ================= BOTTOM NAVIGATION ================= -->
+
 <nav class="bottom-nav">
 
-  <button class="nav active" data-go="home">
-    ⌂
+  <button
+    class="nav active"
+    data-go="home"
+  >
+    🏠
     <span>Home</span>
   </button>
 
-  <button class="nav" data-go="listings">
+
+  <button
+    class="nav"
+    data-go="listings"
+  >
     📋
     <span>Listings</span>
   </button>
 
-  <button class="nav add-nav" data-go="add">
-    ＋
+
+  <button
+    class="add-nav"
+    data-go="add"
+  >
+    +
   </button>
 
-  <button class="nav" data-go="buyers">
+
+  <button
+    class="nav"
+    data-go="buyers"
+  >
     🤝
     <span>Buyers</span>
   </button>
 
-  <button class="nav" data-go="profile">
-    ☻
+
+  <button
+    class="nav"
+    data-go="profile"
+  >
+    👤
     <span>Profile</span>
   </button>
 
 </nav>
+
+
+
+<div
+  id="toast"
+  class="toast"
+></div>
 
 
 <script src="app.js"></script>
