@@ -533,26 +533,21 @@ document.addEventListener("click", event => {
 
 
 function connectBuyer(name) {
-
   data.matches += 1;
-
   saveData();
 
-  toast("🤝 Connection request sent to " + name);
+  toast("💛 Connection request sent to " + name);
 
   setTimeout(function() {
+    const demoPayBtn = document.getElementById("demoPayBtn");
 
-    document.querySelectorAll(".screen").forEach(function(screen) {
-      screen.classList.remove("active");
-    });
-
-    const paymentScreen = document.getElementById("payment");
-
-    if (paymentScreen) {
-      paymentScreen.classList.add("active");
+    if (demoPayBtn) {
+      demoPayBtn.click();
+    } else {
+      toast("⚠️ Payment option not found");
     }
-
   }, 800);
+}
 
 }
 
